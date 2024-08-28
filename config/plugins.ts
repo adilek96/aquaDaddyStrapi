@@ -1,22 +1,22 @@
-export default () => ({
+export default ({env}) => ({
     email: {
         config: {
           provider: 'nodemailer',
           providerOptions: {
-            host: 'smtp.mail.ru',
-            port: 465, 
+            host: env('EMAIL_HOST'),
+            port: env('EMAIL_PORT'), 
             secure: true, 
             auth: {
-              user: 'noreply@aquadaddy.app', 
-              pass: 'wVifAjRB3iS5YtHZ2dCy',
+              user: env('EMAIL_USERNAME'), 
+              pass: env('EMAIL_PASSWORD'),
             },
             tls: {
                 rejectUnauthorized: true, 
               },
           },
           settings: {
-            defaultFrom: 'noreply@aquadaddy.app',
-            defaultReplyTo: 'support@aquadaddy.app',
+            defaultFrom: env('EMAIL_DEFAULT_FROM'),
+            defaultReplyTo: env('EMAIL_DEFAULT_REPLY'),
           },
         }
     }
