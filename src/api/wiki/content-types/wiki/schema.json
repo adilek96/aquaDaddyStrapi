@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "wikis",
+  "info": {
+    "singularName": "wiki",
+    "pluralName": "wikis",
+    "displayName": "Wiki",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Saltwater": {
+      "displayName": "Saltwater",
+      "type": "component",
+      "repeatable": false,
+      "component": "fish.saltwater"
+    },
+    "Freshwater": {
+      "displayName": "Freshwater",
+      "type": "component",
+      "repeatable": false,
+      "component": "freshwater.freshwater"
+    }
+  }
+}
