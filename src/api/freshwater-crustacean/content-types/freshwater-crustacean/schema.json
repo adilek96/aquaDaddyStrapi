@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "freshwater_crustaceans",
+  "info": {
+    "singularName": "freshwater-crustacean",
+    "pluralName": "freshwater-crustaceans",
+    "displayName": "FreshwaterCrustaceans",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

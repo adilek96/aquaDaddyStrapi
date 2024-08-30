@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "saltwater_fishs",
+  "info": {
+    "singularName": "saltwater-fish",
+    "pluralName": "saltwater-fishs",
+    "displayName": "SaltwaterFishs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

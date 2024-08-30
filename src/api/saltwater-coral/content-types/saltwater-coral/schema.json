@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "saltwater_corals",
+  "info": {
+    "singularName": "saltwater-coral",
+    "pluralName": "saltwater-corals",
+    "displayName": "SaltwaterCoral",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

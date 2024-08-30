@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "saltwater_molluscas",
+  "info": {
+    "singularName": "saltwater-mollusca",
+    "pluralName": "saltwater-molluscas",
+    "displayName": "SaltwaterMolluscas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

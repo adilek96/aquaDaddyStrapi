@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "freshwater_molluscas",
+  "info": {
+    "singularName": "freshwater-mollusca",
+    "pluralName": "freshwater-molluscas",
+    "displayName": "FreshwaterMollusca",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

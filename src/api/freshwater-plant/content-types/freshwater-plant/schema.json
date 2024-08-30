@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "freshwater_plants",
+  "info": {
+    "singularName": "freshwater-plant",
+    "pluralName": "freshwater-plants",
+    "displayName": "FreshwaterPlant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

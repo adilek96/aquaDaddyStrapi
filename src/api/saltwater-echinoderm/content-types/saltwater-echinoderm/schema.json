@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "saltwater_echinoderms",
+  "info": {
+    "singularName": "saltwater-echinoderm",
+    "pluralName": "saltwater-echinoderms",
+    "displayName": "SaltwaterEchinoderm"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
