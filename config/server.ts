@@ -1,8 +1,8 @@
 export default ({ env }) => ({
   host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
-  url: "https://strapi.aquadaddy.app",
-  proxy: true,
+  url: env('SERVER_URL'),
+  proxy: env('SERVER_PROXY'),
   app: {
     keys: env.array('APP_KEYS'),
   },

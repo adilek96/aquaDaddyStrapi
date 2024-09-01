@@ -65,22 +65,19 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "fhoto": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
     "country": {
       "type": "string"
     },
     "bio": {
       "type": "text",
       "maxLength": 400
+    },
+    "photoUrl": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

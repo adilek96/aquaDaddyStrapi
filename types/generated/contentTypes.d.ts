@@ -770,12 +770,12 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    fhoto: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     country: Attribute.String;
     bio: Attribute.Text &
       Attribute.SetMinMaxLength<{
         maxLength: 400;
       }>;
+    photoUrl: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
