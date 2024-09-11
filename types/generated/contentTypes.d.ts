@@ -853,28 +853,28 @@ export interface ApiAquariumAquarium extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     launch_date: Attribute.Date;
     volume: Attribute.String;
-    type: Attribute.Enumeration<['freshwater', 'saltwater', 'paludarium']>;
     water_parameters: Attribute.JSON;
     next_service_date: Attribute.Date;
     service_type: Attribute.String;
-    users_permissions_user: Attribute.Relation<
-      'api::aquarium.aquarium',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
     images: Attribute.Media<'images', true> & Attribute.Required;
     habitans: Attribute.JSON;
     width: Attribute.Integer;
     height: Attribute.Integer;
     length: Attribute.Integer;
+    name: Attribute.String & Attribute.Required;
+    type: Attribute.String & Attribute.Required;
+    users_permissions_user: Attribute.Relation<
+      'api::aquarium.aquarium',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::aquarium.aquarium',
       'oneToOne',
