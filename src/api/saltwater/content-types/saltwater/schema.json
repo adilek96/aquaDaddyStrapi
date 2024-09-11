@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "saltwaters",
+  "info": {
+    "singularName": "saltwater",
+    "pluralName": "saltwaters",
+    "displayName": "Saltwater"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "saltwater_corals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::saltwater-coral.saltwater-coral",
+      "mappedBy": "saltwater"
+    },
+    "saltwater_crustaceans": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::saltwater-crustacean.saltwater-crustacean",
+      "mappedBy": "saltwater"
+    },
+    "saltwater_echinoderms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::saltwater-echinoderm.saltwater-echinoderm",
+      "mappedBy": "saltwater"
+    },
+    "saltwater_fishs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::saltwater-fish.saltwater-fish",
+      "mappedBy": "saltwater"
+    },
+    "saltwater_molluscas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::saltwater-mollusca.saltwater-mollusca",
+      "mappedBy": "saltwater"
+    }
+  }
+}

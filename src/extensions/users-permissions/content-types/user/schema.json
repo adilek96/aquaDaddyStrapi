@@ -69,8 +69,7 @@
       "type": "string"
     },
     "bio": {
-      "type": "text",
-      "maxLength": 400
+      "type": "text"
     },
     "photoUrl": {
       "allowedTypes": [
@@ -78,6 +77,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "aquariums": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::aquarium.aquarium",
+      "mappedBy": "users_permissions_user"
     }
   }
 }

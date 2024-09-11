@@ -23,6 +23,12 @@
           "localized": true
         }
       }
+    },
+    "freshwater": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::freshwater.freshwater",
+      "inversedBy": "freshwater_crustaceans"
     }
   }
 }

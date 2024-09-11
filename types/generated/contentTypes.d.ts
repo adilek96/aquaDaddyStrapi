@@ -771,11 +771,13 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.role'
     >;
     country: Attribute.String;
-    bio: Attribute.Text &
-      Attribute.SetMinMaxLength<{
-        maxLength: 400;
-      }>;
+    bio: Attribute.Text;
     photoUrl: Attribute.Media<'images'>;
+    aquariums: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::aquarium.aquarium'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -842,6 +844,52 @@ export interface PluginEmailDesignerEmailTemplate
   };
 }
 
+export interface ApiAquariumAquarium extends Schema.CollectionType {
+  collectionName: 'aquariums';
+  info: {
+    singularName: 'aquarium';
+    pluralName: 'aquariums';
+    displayName: 'Aquarium';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    launch_date: Attribute.Date;
+    volume: Attribute.String;
+    type: Attribute.Enumeration<['freshwater', 'saltwater', 'paludarium']>;
+    water_parameters: Attribute.JSON;
+    next_service_date: Attribute.Date;
+    service_type: Attribute.String;
+    users_permissions_user: Attribute.Relation<
+      'api::aquarium.aquarium',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    images: Attribute.Media<'images', true> & Attribute.Required;
+    habitans: Attribute.JSON;
+    width: Attribute.Integer;
+    height: Attribute.Integer;
+    length: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::aquarium.aquarium',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::aquarium.aquarium',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Schema.CollectionType {
   collectionName: 'articles';
   info: {
@@ -901,6 +949,55 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
 }
 
+export interface ApiFreshwaterFreshwater extends Schema.CollectionType {
+  collectionName: 'freshwaters';
+  info: {
+    singularName: 'freshwater';
+    pluralName: 'freshwaters';
+    displayName: 'Freshwater';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    freshwater_crustaceans: Attribute.Relation<
+      'api::freshwater.freshwater',
+      'oneToMany',
+      'api::freshwater-crustacean.freshwater-crustacean'
+    >;
+    freshwater_fishs: Attribute.Relation<
+      'api::freshwater.freshwater',
+      'oneToMany',
+      'api::freshwater-fish.freshwater-fish'
+    >;
+    freshwater_molluscas: Attribute.Relation<
+      'api::freshwater.freshwater',
+      'oneToMany',
+      'api::freshwater-mollusca.freshwater-mollusca'
+    >;
+    freshwater_plants: Attribute.Relation<
+      'api::freshwater.freshwater',
+      'oneToMany',
+      'api::freshwater-plant.freshwater-plant'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::freshwater.freshwater',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::freshwater.freshwater',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFreshwaterCrustaceanFreshwaterCrustacean
   extends Schema.CollectionType {
   collectionName: 'freshwater_crustaceans';
@@ -925,6 +1022,11 @@ export interface ApiFreshwaterCrustaceanFreshwaterCrustacean
           localized: true;
         };
       }>;
+    freshwater: Attribute.Relation<
+      'api::freshwater-crustacean.freshwater-crustacean',
+      'manyToOne',
+      'api::freshwater.freshwater'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1021,6 +1123,11 @@ export interface ApiFreshwaterFishFreshwaterFish extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    freshwater: Attribute.Relation<
+      'api::freshwater-fish.freshwater-fish',
+      'manyToOne',
+      'api::freshwater.freshwater'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1069,6 +1176,11 @@ export interface ApiFreshwaterMolluscaFreshwaterMollusca
           localized: true;
         };
       }>;
+    freshwater: Attribute.Relation<
+      'api::freshwater-mollusca.freshwater-mollusca',
+      'manyToOne',
+      'api::freshwater.freshwater'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1117,6 +1229,11 @@ export interface ApiFreshwaterPlantFreshwaterPlant
           localized: true;
         };
       }>;
+    freshwater: Attribute.Relation<
+      'api::freshwater-plant.freshwater-plant',
+      'manyToOne',
+      'api::freshwater.freshwater'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1138,6 +1255,60 @@ export interface ApiFreshwaterPlantFreshwaterPlant
       'api::freshwater-plant.freshwater-plant'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiSaltwaterSaltwater extends Schema.CollectionType {
+  collectionName: 'saltwaters';
+  info: {
+    singularName: 'saltwater';
+    pluralName: 'saltwaters';
+    displayName: 'Saltwater';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    saltwater_corals: Attribute.Relation<
+      'api::saltwater.saltwater',
+      'oneToMany',
+      'api::saltwater-coral.saltwater-coral'
+    >;
+    saltwater_crustaceans: Attribute.Relation<
+      'api::saltwater.saltwater',
+      'oneToMany',
+      'api::saltwater-crustacean.saltwater-crustacean'
+    >;
+    saltwater_echinoderms: Attribute.Relation<
+      'api::saltwater.saltwater',
+      'oneToMany',
+      'api::saltwater-echinoderm.saltwater-echinoderm'
+    >;
+    saltwater_fishs: Attribute.Relation<
+      'api::saltwater.saltwater',
+      'oneToMany',
+      'api::saltwater-fish.saltwater-fish'
+    >;
+    saltwater_molluscas: Attribute.Relation<
+      'api::saltwater.saltwater',
+      'oneToMany',
+      'api::saltwater-mollusca.saltwater-mollusca'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::saltwater.saltwater',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::saltwater.saltwater',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1164,6 +1335,11 @@ export interface ApiSaltwaterCoralSaltwaterCoral extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    saltwater: Attribute.Relation<
+      'api::saltwater-coral.saltwater-coral',
+      'manyToOne',
+      'api::saltwater.saltwater'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1202,6 +1378,11 @@ export interface ApiSaltwaterCrustaceanSaltwaterCrustacean
   attributes: {
     name: Attribute.String;
     test: Attribute.String;
+    saltwater: Attribute.Relation<
+      'api::saltwater-crustacean.saltwater-crustacean',
+      'manyToOne',
+      'api::saltwater.saltwater'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1233,6 +1414,11 @@ export interface ApiSaltwaterEchinodermSaltwaterEchinoderm
   };
   attributes: {
     name: Attribute.String;
+    saltwater: Attribute.Relation<
+      'api::saltwater-echinoderm.saltwater-echinoderm',
+      'manyToOne',
+      'api::saltwater.saltwater'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1263,6 +1449,11 @@ export interface ApiSaltwaterFishSaltwaterFish extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
+    saltwater: Attribute.Relation<
+      'api::saltwater-fish.saltwater-fish',
+      'manyToOne',
+      'api::saltwater.saltwater'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1294,6 +1485,11 @@ export interface ApiSaltwaterMolluscaSaltwaterMollusca
   };
   attributes: {
     name: Attribute.String;
+    saltwater: Attribute.Relation<
+      'api::saltwater-mollusca.saltwater-mollusca',
+      'manyToOne',
+      'api::saltwater.saltwater'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1331,11 +1527,14 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::email-designer.email-template': PluginEmailDesignerEmailTemplate;
+      'api::aquarium.aquarium': ApiAquariumAquarium;
       'api::article.article': ApiArticleArticle;
+      'api::freshwater.freshwater': ApiFreshwaterFreshwater;
       'api::freshwater-crustacean.freshwater-crustacean': ApiFreshwaterCrustaceanFreshwaterCrustacean;
       'api::freshwater-fish.freshwater-fish': ApiFreshwaterFishFreshwaterFish;
       'api::freshwater-mollusca.freshwater-mollusca': ApiFreshwaterMolluscaFreshwaterMollusca;
       'api::freshwater-plant.freshwater-plant': ApiFreshwaterPlantFreshwaterPlant;
+      'api::saltwater.saltwater': ApiSaltwaterSaltwater;
       'api::saltwater-coral.saltwater-coral': ApiSaltwaterCoralSaltwaterCoral;
       'api::saltwater-crustacean.saltwater-crustacean': ApiSaltwaterCrustaceanSaltwaterCrustacean;
       'api::saltwater-echinoderm.saltwater-echinoderm': ApiSaltwaterEchinodermSaltwaterEchinoderm;

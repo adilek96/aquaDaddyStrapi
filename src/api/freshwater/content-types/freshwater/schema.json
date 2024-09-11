@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "freshwaters",
+  "info": {
+    "singularName": "freshwater",
+    "pluralName": "freshwaters",
+    "displayName": "Freshwater"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "freshwater_crustaceans": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::freshwater-crustacean.freshwater-crustacean",
+      "mappedBy": "freshwater"
+    },
+    "freshwater_fishs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::freshwater-fish.freshwater-fish",
+      "mappedBy": "freshwater"
+    },
+    "freshwater_molluscas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::freshwater-mollusca.freshwater-mollusca",
+      "mappedBy": "freshwater"
+    },
+    "freshwater_plants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::freshwater-plant.freshwater-plant",
+      "mappedBy": "freshwater"
+    }
+  }
+}

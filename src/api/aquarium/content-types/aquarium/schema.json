@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "aquariums",
+  "info": {
+    "singularName": "aquarium",
+    "pluralName": "aquariums",
+    "displayName": "Aquarium",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "launch_date": {
+      "type": "date"
+    },
+    "volume": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "freshwater",
+        "saltwater",
+        "paludarium"
+      ]
+    },
+    "water_parameters": {
+      "type": "json"
+    },
+    "next_service_date": {
+      "type": "date"
+    },
+    "service_type": {
+      "type": "string"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "aquariums"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "habitans": {
+      "type": "json"
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    },
+    "length": {
+      "type": "integer"
+    }
+  }
+}

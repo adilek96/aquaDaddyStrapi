@@ -16,6 +16,12 @@
     },
     "test": {
       "type": "string"
+    },
+    "saltwater": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::saltwater.saltwater",
+      "inversedBy": "saltwater_crustaceans"
     }
   }
 }
